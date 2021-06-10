@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: node-app-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: ectmb
+        image: humansimon/ectmb-nodeps
+        command: ["Rscript", "/app/CalculateTMB.R", "/static/UCEC.rda", "/static/exome_hg38_vep.Rdata", "/static/gene.covar.txt", "/static/mutation_context_96.txt", "/static/TST170_DNA_targets_hg38.bed", "/static/GRCh38.d1.vd1.fa", "/static/tmb.pdf"]
+      restartPolicy: Never
