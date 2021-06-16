@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ectmb-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: ectmb
+        image: humansimon/ectmb-nodeps
+        command: ["calcTMBNoMount", "train"]
+      restartPolicy: Never
