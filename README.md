@@ -45,15 +45,21 @@ Cleanup the cluster and docker image.
 ./src/delete-cluster.sh
 ```
 
-Note the cluster logs will persist post deletion, but the cluster metrics will not.
+Note the cluster logs will persist post deletion, but the cluster metrics will
+not.
 
 # Benchmarking
 There are three jobs for the benchmark:
- *  helloworld.yml -- Loads a docker image and prints the help output an R
-    script.
+ *  helloworld.yml -- Loads a docker image and prints the ecTMB help output
+    (an R script).
  *  test.yml -- Applies a pre-trained tumour mutation burden classifier.
  *  train.yml -- Trains a new tumour mutation burden classifier.
 
 By submitting the job and polling the cluster, the execution time can be
 measured. Memory usage, CPU utilization and IO can be read from panopticon
-...TODO.
+by visiting the GCP console and following these links:
+ *  Node Utilization: Cloud Console &rightarrow; Kubernetes Engine &rightarrow;
+    Clusters &rightarrow; test-cluster &rightarrow; nodes &rightarrow; gke-test-cluster-default-pool-\*-\*
+ *  Job Utilization: Cloud Console &rightarrow; Kubernetes Engine
+    &rightarrow; Object Browser &rightarrow; batch &rightarrow; job
+    &rightarrow; ectmb-\*
