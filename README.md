@@ -19,6 +19,9 @@ Set up a GKE cluster.
 ./src/create-cluster.sh
 ```
 
+Note to run in train mode, the machine type in create-cluster.sh needs to be
+changed to n1-highmem-16.
+
 Push the docker image to GKE.
 
 ```bash
